@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npm run lint:ts && npm run lint:format",
+    "lint:ts": "tsc -b jsconfig.json",
+    "lint:format": "prettier --check --ignore-path .gitignore .",
+    "test:mutation": "npx stryker run",
+    "start": "lite-server",
+    "build": "babel src -d lib",
+    "test": "jest",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "e2e": "npx cypress run"
   },
   "keywords": [],
   "author": "Luciano Montalvão",
